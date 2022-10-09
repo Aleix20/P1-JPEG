@@ -6,18 +6,16 @@ def rle_encode(data):
     if not data: return ''
 
     for char in data:
-        # If the prev and current characters
-        # don't match...
+       #Check if the actual character and the previous one match
         if char != prev_char:
             # ...then add the count and character
             # to our encoding
             if prev_char:
-                encoding += str(count) + prev_char
-            count = 1
-            prev_char = char
+                encoding += str(count) + prev_char #Add the char and the total count to our sequence
+            count = 1 #Reset the count
+            prev_char = char #Reset our new char
         else:
-            # Or increment our counter
-            # if the characters do match
+            #If char match, just increment the value
             count += 1
     else:
         # Finish off the encoding
